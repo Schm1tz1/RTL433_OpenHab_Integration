@@ -1,0 +1,3 @@
+// weather sensor triggered by rtl_433
+Number Sensor_Weather_Temp "Aussentemperatur [%.1f °C]" <temperature>
+Number Sensor_Weather_Humidity "rel. Luftfeuchte [%d]" <temperature>
