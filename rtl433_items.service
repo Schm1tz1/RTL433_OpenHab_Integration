@@ -1,0 +1,11 @@
+[Unit]
+Description=RTL433 OpenHAB Integration for Weather Sensors
+
+[Service]
+ExecStart=/home/openhabian/RTL433_OpenHab_Integration/rtl433_items.sh
+User=openhabian
+Group=openhabian
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
