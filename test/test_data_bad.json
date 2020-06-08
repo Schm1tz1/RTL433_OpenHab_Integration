@@ -1,0 +1,2 @@
+{"time" : "2020-06-07 21:19:40", "enabled" : 125, "frames" : {"count" : 14, "fsk" : 0, "events" : 12}, "stats" : [{"device" : 25, "name" : "Globaltronics GT-WT-02 Sensor", "events" : 14, "ok" : 12, "messages" : 12, "fail_other" : 2}]}
+{"time" : "2020-06-07 21:20:21", "protocol" : 25, "model" : "SUM-TING-WONG", "id" : 42, "channel" : 8, "battery_ok" : 1, "temperature_C" : 16.400, "humidity" : 54.000, "button" : 0, "mic" : "CHECKSUM", "mod" : "ASK", "freq" : 433.946, "rssi" : -7.752, "snr" : 15.641, "noise" : -23.394}
