@@ -1,0 +1,2 @@
+temperature_C;Sensor_Weather_Temp
+humidity;Sensor_Weather_Humidity
