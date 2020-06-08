@@ -22,14 +22,20 @@ RTL_FIELDS=($(cat ${FIELD_ITEM_MAP} | cut -d ';' -f1))
 while read -r sensorData; do
   FILTERED_MESSAGE=$(echo "$sensorData" | jq "$JQ_FILTER | to_entries | from_entries")
 
-  if [ ${#FILTERED_MESSAGE[@]} -eq 0 ]; then
+  if [[ ! $FILTERED_MESSAGE ]]; then
     echo "Unable to parse RTL433-Message '$sensorData'."
   else
 
     for key in "${RTL_FIELDS[@]}"; do
-	    targetItem=$(echo $key | sed $SED_LINE)
-	    value=$(echo $FILTERED_MESSAGE | jq ".$key")
-      curl -X POST --header "Content-Type: text/plain" --header "Accept: application/json" -d "$value" "http://openhabianpi:8080/rest/items/$targetItem"
+	    targetItem=$(echo "$key" | sed "$SED_LINE")
+	    value=$(echo "$FILTERED_MESSAGE" | jq ".$key")
+
+	    if [[ ! $value ]]; then
+	      echo "Error! No data for field '$key'."
+      else
+  	    echo "$key : $value -> $targetItem"
+        curl -X POST --header "Content-Type: text/plain" --header "Accept: application/json" -d "$value" "http://openhabianpi:8080/rest/items/$targetItem"
+      fi
     done
 
   fi
