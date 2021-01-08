@@ -35,6 +35,7 @@ while read -r sensorData; do
       else
   	    echo "$key : $value -> $targetItem"
         curl -X POST --header "Content-Type: text/plain" --header "Accept: application/json" -d "$value" "http://openhabianpi:8080/rest/items/$targetItem"
+        # for openHAB3 authentication simply add -u '{user:pass}' or -u '{token}:'
       fi
     done
 
